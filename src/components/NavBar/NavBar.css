@@ -1,0 +1,53 @@
+.NavBar {
+  width: 100%;
+  margin: auto;
+  background-color: rgb(60, 60, 163);
+  font-size: 20px;
+}
+
+.NavBar img {
+  margin-top: 15px;
+}
+
+.componentes-NavBar {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.componentes-NavBar li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.componentes-NavBar li:hover {
+  background-color: rgb(31, 31, 160);
+}
+
+.menu-vertical {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 200;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.componentes-NavBar li:hover .menu-vertical {
+  display: block;
+}
+
+.menu-vertical li:hover {
+  background-color: black;
+  color: white;
+}
+.menu-vertical li a {
+  display: block;
+  color: white;
+  padding: 15px, 15px, 15px, 20px;
+  text-decoration: none;
+}
+.menu-vertical li {
+  color: white;
+}
