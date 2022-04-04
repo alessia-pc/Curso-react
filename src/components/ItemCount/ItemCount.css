@@ -1,0 +1,10 @@
+.BotonesItemCount {
+  width: 100px;
+  padding: 30px;
+  background-color: rgb(7, 5, 40);
+  border-radius: 5px;
+}
+.BotonesItemCount button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
