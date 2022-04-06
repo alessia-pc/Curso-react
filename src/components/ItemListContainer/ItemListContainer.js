@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
 const ItemListContainer = (props) => {
@@ -19,6 +19,32 @@ const ItemListContainer = (props) => {
   return (
     <div>
       <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} />
+    </div>
+  );
+};
+
+export default ItemListContainer; */
+
+import { useState, useEffect } from "react";
+import { getProducts } from "../../asyncmock";
+import ItemList from "../ItemList/ItemList";
+
+const ItemListContainer = (props) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts()
+      .then((props) => {
+        setProducts(props);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <ItemList products={products} />
     </div>
   );
 };
