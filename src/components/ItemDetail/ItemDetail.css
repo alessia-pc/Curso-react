@@ -1,0 +1,11 @@
+.detalle-productos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 10px 70px;
+  font-size: 18px;
+}
+
+.detalle-productos img {
+  padding: 0 155px;
+}

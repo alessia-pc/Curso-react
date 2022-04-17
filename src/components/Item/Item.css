@@ -1,6 +1,8 @@
 .container-productos {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  color: white;
 }
 
 .img-productos {
@@ -9,14 +11,29 @@
 
 .producto1,
 .producto2,
-.producto3 {
+.producto3,
+.producto4,
+.producto5,
+.producto6,
+.producto7,
+.producto8,
+.producto9 {
   width: 350px;
   font-size: 20px;
   margin-bottom: 30px;
   /*******************/
-  background-color: rgb(11, 3, 29);
+  /* background-color: rgb(124, 122, 245);
+  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.5);*/
+  border-radius: 5px;
   padding: 5px;
   margin: 20px;
+
+  background: linear-gradient(
+    344deg,
+    rgba(40, 40, 55, 1) 0%,
+    rgba(16, 16, 18, 1) 50%
+  );
+  box-shadow: 4px 6px 14px #2f2f42;
 }
 
 button {
@@ -33,11 +50,5 @@ button:hover {
   border: 1px solid rgb(20, 87, 244);
   background-color: transparent;
   color: rgb(20, 87, 244);
-  background-color: rgb(13, 7, 36);
-}
-
-button:focus {
-  box-shadow: 0px 0px 0px 5px rgba(20, 87, 244, 0.37),
-    0px 0px 0px 10px rgba(20, 87, 244, 0.38);
-  outline: none;
+  background-color: rgb(227, 225, 239);
 }

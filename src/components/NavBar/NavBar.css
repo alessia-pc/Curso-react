@@ -1,6 +1,5 @@
 .NavBar {
   width: 100%;
-  margin: auto;
   background-color: rgb(60, 60, 163);
   font-size: 20px;
 }
@@ -8,6 +7,7 @@
 .NavBar img {
   margin-top: 15px;
 }
+
 
 .componentes-NavBar {
   list-style: none;
@@ -20,6 +20,7 @@
   padding: 15px 20px;
   color: white;
   text-decoration: none;
+  text-align: left;
 }
 
 .componentes-NavBar li:hover {
@@ -38,16 +39,27 @@
   display: block;
 }
 
-.menu-vertical li:hover {
-  background-color: black;
+.menu-vertical a:hover {
+  background-color: rgb(23, 23, 118) ;
   color: white;
 }
 .menu-vertical li a {
   display: block;
   color: white;
-  padding: 15px, 15px, 15px, 20px;
+  padding: 15px, 15px, 85px, 20px;
   text-decoration: none;
 }
 .menu-vertical li {
   color: white;
+}
+
+.elements-NavBar {
+  color: white;
+  text-decoration: none;
+}
+
+
+.ActiveOption {
+  background: rgb(23, 23, 118);
+  height: 36px;
 }
