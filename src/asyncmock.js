@@ -1,10 +1,12 @@
+
+
 const products = [
   {
     id: "producto1",
     nombre: "Auriculares Beats Studio3 Wireless – Skyline Collection ",
     precio: "$50.000",
     categoria: "auriculares",
-    img: "https://o.remove.bg/downloads/801d92a2-f71f-4a69-881a-d267a59cbebd/MXJ92-removebg-preview.png",
+    img: "https://o.remove.bg/downloads/199eb890-dea2-4a56-85f9-03e705f86a73/MXJ92-removebg-preview.png",
     stock: 10,
     descripcion:
       "Los auriculares Beats Studio3 Wireless ofrecen un sonido extraordinario gracias a la tecnología Pure ANC (cancelación de ruido activa), que bloquea el ruido exterior de forma activa, y a la calibración de audio en tiempo real, que mantiene la nitidez, el rango y la expresividad de tu música. Detectan continuamente los sonidos exteriores que hay que bloquear y optimizan automáticamente el ajuste en tiempo real para que la música de tus artistas preferidos suene tal y como la concibieron.",
@@ -14,7 +16,7 @@ const products = [
     nombre: "Auriculares Beats Solo3 Wireless - Oro rosa",
     precio: "$32.000",
     categoria: "auriculares",
-    img: "https://o.remove.bg/downloads/ec1e7341-401b-447f-a0e3-4d5e9490ec76/MX442-removebg-preview.png",
+    img: '../public/Images/MX442-removebg-preview.png',
     stock: 12,
     descripcion:
       "Con una batería de hasta 40 horas de duración, los Beats Solo3 Wireless son los auriculares ideales para tu día a día. Gracias a Fast Fuel puedes usarlos 3 horas con una carga de solo 5 minutos. Disfruta del sonido que solo Beats puede ofrecerte y súmale la libertad de movimiento que te da la tecnología inalámbrica Bluetooth de clase 1. Además puedes ajustar a tu gusto sus cascos acolchados abiertos, así nunca te cansarás de llevarlos.",
@@ -24,7 +26,7 @@ const products = [
     nombre: "Beats Solo3 Wireless - Mickey's 90th Anniversary Edition",
     precio: "$30.000",
     categoria: "auriculares",
-    img: "https://o.remove.bg/downloads/ea288c2a-32b5-4a9f-9c6c-4eb18a4393f0/beats-mickey-removebg-preview.png",
+    img: "https://o.remove.bg/downloads/8ff84ddd-dc32-4713-bce4-863a6c142586/beats-mickey-removebg-preview.png",
     stock: 5,
     descripcion:
       "Conéctate con tu dispositivo a través de Bluetooth Clase 1 para escuchar sin cables. Beats te trae el sonido y el diseño galardonados que te gustan.Hasta 40 horas de duración de la batería para uso durante varios días.Con combustible rápido, 5 minutos de carga le da 3 horas de reproducción cuando la batería es bajaAjuste ajustable con almohadillas acolchadas para el uso diario.",
@@ -32,7 +34,7 @@ const products = [
   {
     id: "producto4",
     nombre: "JBL Boombox 2",
-    precio: "$15.000",
+    precio: "$26.000",
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw23a09c2b/JBL_BOOMBOX_2_HERO_020_x1.png?sw=537&sfrm=png",
     stock: 6,
@@ -42,7 +44,7 @@ const products = [
   {
     id: "producto5",
     nombre: "JBL Go 3",
-    precio: "$8.500",
+    precio: "$10.500",
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw28e9eaf6/JBL_GO_3_HERO_BLUE_0077_1605x1605px.png?sw=537&sfrm=png",
     stock: 9,
@@ -64,7 +66,7 @@ const products = [
     nombre: "Bose Freespace 360p Ii ",
     precio: "$135.700",
     categoria: "parlantes-de-exterior",
-    img: "https://o.remove.bg/downloads/b0998799-42d9-4359-a2cc-928e1c6f0496/bose-professional-freespace-360p-series-ii-environmental-loudspeaker-removebg-preview.png",
+    img: "https://o.remove.bg/downloads/79c30ff5-5755-4181-89a6-283a35d28f7a/bose-professional-freespace-360p-series-ii-environmental-loudspeaker-removebg-preview.png",
     stock: "10",
     descripcion:
       'Este altavoz ambiental de rango completo está diseñado para mezclarse con el paisajismo en aplicaciones de instalación en tierra o sobre tierra, como centros comerciales, restaurantes al aire libre, centros turísticos y parques temáticos. Cuenta con una cobertura horizontal de 360° y un rango de frecuencia de hasta 60 Hz. Altavoz ambiental de rango completo con un driver ambiental avanzado compuesto de rango completo de 114 mm (4.5") que apunta hacia abajo, para instalación en tierra o sobre tierraLa rejilla de puerto en forma de cúpula refleja el sonido en el área de escucha para un rendimiento claro y consistente. La forma del gabinete actúa como difusor acústico que dirige la energía de media y alta frecuencia hacia los oyentes. La base del altavoz actúa como una carcasa con reflexión de bajos, afinada y con varias cámaras',
