@@ -7,11 +7,10 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
 
   const [quantity, setQuantity] = useState(0)
 
-  const handleAdd = (count) => {
-    console.log('Agregar al carrito')
-    setQuantity(count)
-    console.log(count)
+  function handleOnAdd(cantidad) {
+    setQuantity(cantidad)
   }
+  console.log(quantity)
 
   return (
     <div className="detalle-productos">
@@ -37,7 +36,7 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
             </Link>
           </button>
         ) : (
-          <ItemCount initial={1} stock={15} onAdd={handleAdd} />
+          <ItemCount initial={1} stock={15} onAdd={handleOnAdd} />
         )}
       </footer>
     </div>
