@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Proyecto React - Alessia Puga Cammuso
+
+Soy Alessia Puga Cammuso y este es mi proyecto para el curso de React de CoderHouse. Mi proyecto se llama Tierra ruidosa y es una página en la cual encuentras productos que te llevan a vivir la musica de una manera increible! En el proyecto utilicé la libreria de routing y algunos hooks!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
