@@ -5,10 +5,15 @@ import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCategories } from "../../asyncmock";
 
-const NavBar = () => {
+const botonesNavBar = [
+  { id: "inicio", nombreBoton: "Inicio" },
+  { id: "productos", nombreBoton: "Productos" },
+  { id: "contacto", nombreBoton: "Contacto" },
+];
 
- const [categories, setCategories] = useState([])
-  
+const NavBar = () => {
+  const [categories, setCategories] = useState([]);
+
   useEffect(() => {
     getCategories().then((categories) => {
       setCategories(categories);
@@ -68,6 +73,10 @@ const NavBar = () => {
       </ul>
     </nav>
   );
+};
+
+const bontonNavbar = () => {
+  return <div>asyncmock</div>;
 };
 
 export default NavBar;
