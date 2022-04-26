@@ -2,8 +2,8 @@ import React from "react";
 import "./ItemCount.css";
 import { useState } from "react";
 
-function ItemCount({ stock, onAdd }) {
-  const [count, setCount] = useState(0);
+function ItemCount({ stock = 0, initial = 1, onAdd }) {
+  const [count, setCount] = useState(initial);
 
   function incrementar() {
     if (count < stock) {

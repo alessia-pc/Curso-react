@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 
-const ItemDetailContainer = (prods) => {
+const ItemDetailContainer = (setCart, cart) => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +32,7 @@ const ItemDetailContainer = (prods) => {
       {loading ? (
         <Spinner />
       ) : product ? (
-        <ItemDetail {...product} />
+        <ItemDetail {...product} setCart={setCart} cart={cart} />
       ) : (
         <h1>El producto no existe</h1>
       )}

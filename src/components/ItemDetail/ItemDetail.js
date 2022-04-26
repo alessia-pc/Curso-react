@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Context } from "../../App";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
+import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   const [quantity, setQuantity] = useState(0);
 
+  const { addItem, isInCart, getQuantityProduct } = useContext(CartContext);
+
   function handleOnAdd(cantidad) {
-    setQuantity(cantidad);
+    /* setQuantity(cantidad); */
+
+    const objetosProductos = {
+      id,
+      nombre,
+      precio,
+      quantity: cantidad,
+    };
+    addItem({ ...objetosProductos });
   }
   console.log(quantity);
 
@@ -26,12 +39,16 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       </p>
 
       <footer>
-        {quantity > 0 ? (
+        {false ? (
           <button>
             <Link to="/carrito">Ir al carrito</Link>
           </button>
         ) : (
-          <ItemCount initial={1} stock={15} onAdd={handleOnAdd} />
+          <ItemCount
+            onAdd={handleOnAdd}
+            initial={getQuantityProduct(id)}
+            stock={15}
+          />
         )}
       </footer>
     </div>
