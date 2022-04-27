@@ -2,7 +2,7 @@ const products = [
   {
     id: "producto1",
     nombre: "Auriculares Beats Studio3 Wireless – Skyline Collection ",
-    precio: "$50.000",
+    precio: 50000,
     categoria: "auriculares",
     img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXJ92?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1580420175341",
     stock: 10,
@@ -12,7 +12,7 @@ const products = [
   {
     id: "producto2",
     nombre: "Auriculares Beats Solo3 Wireless - Oro rosa",
-    precio: "$32.000",
+    precio: 32000,
     categoria: "auriculares",
     img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MX442?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1570119324104",
     stock: 12,
@@ -22,7 +22,7 @@ const products = [
   {
     id: "producto3",
     nombre: "Beats Solo3 Wireless - Mickey's 90th Anniversary Edition",
-    precio: "$30.000",
+    precio: 30000,
     categoria: "auriculares",
     img: "https://m.media-amazon.com/images/I/714og8zjjDL._AC_SL1500_.jpg",
     stock: 5,
@@ -32,7 +32,7 @@ const products = [
   {
     id: "producto4",
     nombre: "JBL Boombox 2",
-    precio: "$15.000",
+    precio: 15000,
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw23a09c2b/JBL_BOOMBOX_2_HERO_020_x1.png?sw=537&sfrm=png",
     stock: 6,
@@ -42,7 +42,7 @@ const products = [
   {
     id: "producto5",
     nombre: "JBL Go 3",
-    precio: "$8.500",
+    precio: 8500,
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw28e9eaf6/JBL_GO_3_HERO_BLUE_0077_1605x1605px.png?sw=537&sfrm=png",
     stock: 9,
@@ -52,7 +52,7 @@ const products = [
   {
     id: "producto6",
     nombre: "JBL Flip 6",
-    precio: "$23.000",
+    precio: 23000,
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw6d9c1a12/1_JBL_FLIP6_HERO_RED_29399_x1.png?sw=537&sfrm=png",
     stock: "3",
@@ -62,7 +62,7 @@ const products = [
   {
     id: "producto7",
     nombre: "Bose Freespace 360p Ii ",
-    precio: "$135.700",
+    precio: 135700,
     categoria: "parlantes-de-exterior",
     img: "https://www.bhphotovideo.com/images/images750x750/bose_professional_40151_freespace_360_p_ii_in_ground_1330013.jpg",
     stock: "10",
@@ -72,7 +72,7 @@ const products = [
   {
     id: "producto8",
     nombre: "JBL Partybox 310",
-    precio: "$150.000",
+    precio: 150000,
     categoria: "parlantes-de-fiesta",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw1a83a1db/JBL_PartyBox_310_Hero_0176_x3.png?sw=537&sfrm=png",
     stock: 13,
@@ -82,7 +82,7 @@ const products = [
   {
     id: "producto9",
     nombre: "JBL Partybox 710",
-    precio: "$162.000",
+    precio: 162000,
     categoria: "parlantes-de-fiesta",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw782afba0/1_JBL_PARTYBOX_710_HERO_0031_x8.png?sw=537&sfrm=png",
     stock: 5,

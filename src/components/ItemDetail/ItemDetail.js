@@ -5,14 +5,17 @@ import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import CartContext from "../../context/CartContext";
+import { useNotificacion } from "../../notificacion/Notificacion";
 
 const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   const [quantity, setQuantity] = useState(0);
 
-  const { addItem, isInCart, getQuantityProduct } = useContext(CartContext);
+  const { addItem, getQuantityProduct } = useContext(CartContext);
+
+  const { setNotificacion } = useNotificacion();
 
   function handleOnAdd(cantidad) {
-    /* setQuantity(cantidad); */
+    setQuantity(cantidad);
 
     const objetosProductos = {
       id,
@@ -21,6 +24,10 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       quantity: cantidad,
     };
     addItem({ ...objetosProductos });
+    setNotificacion(
+      "exito",
+      `Se agregaron ${cantidad} ${nombre} correctamente`
+    );
   }
   console.log(quantity);
 
@@ -39,14 +46,15 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       </p>
 
       <footer>
-        {false ? (
+        {quantity > 0 ? (
           <button>
-            <Link to="/carrito">Ir al carrito</Link>
+            <Link to="/carrito" className="btn-ir-al-carrito">Ir al carrito</Link>
           </button>
         ) : (
           <ItemCount
             onAdd={handleOnAdd}
-            initial={getQuantityProduct(id)}
+            //initial={getQuantityProduct(id)}
+            initial={1}
             stock={15}
           />
         )}

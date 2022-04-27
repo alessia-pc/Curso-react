@@ -15,7 +15,7 @@ export const CartContextProvider = ({ children }) => {
         if (prod.id === productToAdd.id) {
           const newProduct = {
             ...prod,
-            quantity: productToAdd.quantity,
+            quantity: prod.quantity + productToAdd.quantity,
           };
           return newProduct;
         } else {
@@ -49,8 +49,16 @@ export const CartContextProvider = ({ children }) => {
     setCart(productos);
   };
 
-  const getQuantityProduct = (id) => {
+/*   const getQuantityProduct = (id) => {
     return cart.find((prod) => prod.id === id)?.quantity;
+  }; */
+
+  const totalCost = () => {
+    const totalCost = Object.values(cart).reduce(
+      (acc, { quantity, precio}) => acc + quantity * precio,
+      0
+    );
+    return totalCost;
   };
 
   return (
@@ -62,7 +70,8 @@ export const CartContextProvider = ({ children }) => {
         isInCart,
         clearCart,
         removeItem,
-        getQuantityProduct,
+        //getQuantityProduct,
+        totalCost
       }}
     >
       {/* es envuelto aca */}

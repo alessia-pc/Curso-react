@@ -9,3 +9,8 @@
 .detalle-productos img {
   padding: 0 155px;
 }
+
+.btn-ir-al-carrito {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
