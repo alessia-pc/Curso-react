@@ -24,9 +24,14 @@ const ItemDetailContainer = (setCart, cart) => {
         setLoading(false);
       }); */
 
-    getDoc(doc(firestoreDb, "products", productId)).then((response) => {
-      console.log(response);
-    });
+    getDoc(doc(firestoreDb, "products", productId))
+      .then((response) => {
+        console.log(response);
+        const product = { id: response.id, ...response.data() };
+        setProduct(product);
+      })
+      .finally(() => setLoading(false));
+    console.log(product);
     return () => {
       setProduct();
     };
