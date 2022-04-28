@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { getProducts } from "../../asyncmock";
-import { getProductsByCategoriaId } from "../../asyncmock";
+//import { getProducts } from "../../asyncmock";
+//import { getProductsByCategoriaId } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { firestoreDb } from "../../services/firebase";
 
 const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
@@ -13,7 +15,7 @@ const ItemListContainer = (props) => {
   const { categoriaId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
+    /* setLoading(true);
     getProductsByCategoriaId(categoriaId)
       .then((prods) => {
         setProducts(prods);
@@ -25,13 +27,30 @@ const ItemListContainer = (props) => {
 
       .finally(() => {
         setLoading(false);
+      }); */
+
+    const collectionRef = categoriaId
+      ? query(
+          collection(firestoreDb, "products"),
+          where("category", "==", categoriaId)
+        )
+      : collection(firestoreDb, "products");
+
+    getDocs(collectionRef).then((response) => {
+      console.log(response);
+      const products = response.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
       });
+      setProducts(products);
+    });
   }, [categoriaId]);
+
+  if (products.length === 0) {
+    return <h2>No hay productos</h2>;
+  }
 
   return (
     <div>
-      <h1>{props.greeting}</h1>
-
       {loading ? (
         <Spinner />
       ) : products ? (

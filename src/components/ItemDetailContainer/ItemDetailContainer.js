@@ -3,6 +3,8 @@ import { getProductById } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
+import { firestoreDb } from "../../services/firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = (setCart, cart) => {
   const [product, setProduct] = useState([]);
@@ -11,7 +13,7 @@ const ItemDetailContainer = (setCart, cart) => {
   const { productId } = useParams();
 
   useEffect(() => {
-    getProductById(productId)
+    /* getProductById(productId)
       .then((item) => {
         setProduct(item);
       })
@@ -20,8 +22,11 @@ const ItemDetailContainer = (setCart, cart) => {
       })
       .finally(() => {
         setLoading(false);
-      });
+      }); */
 
+    getDoc(doc(firestoreDb, "products", productId)).then((response) => {
+      console.log(response);
+    });
     return () => {
       setProduct();
     };

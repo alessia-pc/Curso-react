@@ -1,7 +1,7 @@
 const products = [
   {
     id: "producto1",
-    nombre: "Auriculares Beats Studio3 Wireless – Skyline Collection ",
+    nombre: "Auriculares Beats Studio3 Wireless – Skyline Collection",
     precio: 50000,
     categoria: "auriculares",
     img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXJ92?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1580420175341",
