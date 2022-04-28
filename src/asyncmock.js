@@ -55,7 +55,7 @@ const products = [
     precio: 23000,
     categoria: "parlantes-portatiles",
     img: "https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw6d9c1a12/1_JBL_FLIP6_HERO_RED_29399_x1.png?sw=537&sfrm=png",
-    stock: "3",
+    stock: 3,
     descripcion:
       "La banda sonora de tus aventuras El atrevido JBL Flip 6 ofrece el potente sonido JBL Original Pro con una claridad excepcional gracias a su sistema de altavoces bidireccionales, con un driver optimizado en forma de pista de carreras, un altavoz de agudos independiente y dos radiadores pasivos (uno a cada lateral). Este altavoz, además de ofrecerte el mejor sonido, es fácil de transportar y es resistente al agua y al polvo, por lo que puedes llevarlo a cualquier parte, sin importar el tiempo que haga. Y con 12 horas de batería, puedes irte de fiesta desde el amanecer al anochecer, allá donde te lleve la música. Usa PartyBoost para conectar varios altavoces compatibles. El Flip 6 está disponible en una gran variedad de colores.",
   },
@@ -65,7 +65,7 @@ const products = [
     precio: 135700,
     categoria: "parlantes-de-exterior",
     img: "https://www.bhphotovideo.com/images/images750x750/bose_professional_40151_freespace_360_p_ii_in_ground_1330013.jpg",
-    stock: "10",
+    stock: 10,
     descripcion:
       'Este altavoz ambiental de rango completo está diseñado para mezclarse con el paisajismo en aplicaciones de instalación en tierra o sobre tierra, como centros comerciales, restaurantes al aire libre, centros turísticos y parques temáticos. Cuenta con una cobertura horizontal de 360° y un rango de frecuencia de hasta 60 Hz. Altavoz ambiental de rango completo con un driver ambiental avanzado compuesto de rango completo de 114 mm (4.5") que apunta hacia abajo, para instalación en tierra o sobre tierraLa rejilla de puerto en forma de cúpula refleja el sonido en el área de escucha para un rendimiento claro y consistente. La forma del gabinete actúa como difusor acústico que dirige la energía de media y alta frecuencia hacia los oyentes. La base del altavoz actúa como una carcasa con reflexión de bajos, afinada y con varias cámaras',
   },

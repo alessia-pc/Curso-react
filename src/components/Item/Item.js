@@ -2,9 +2,9 @@ import "./Item.css";
 /* import ItemCount from "../ItemCount/ItemCount"; */
 import { Link } from "react-router-dom";
 
-const Item = ({ nombre, img, precio, id }) => {
+const Item = ({ nombre, img, precio, id, categoria}) => {
   return (
-    <div className={id}>
+    <div className={categoria}>
       <h3>{nombre}</h3>
       <p>Precio: $ {precio}</p>
       <img className="img-productos" src={img} alt={nombre} />

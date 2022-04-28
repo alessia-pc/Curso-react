@@ -32,7 +32,7 @@ const ItemListContainer = (props) => {
     const collectionRef = categoriaId
       ? query(
           collection(firestoreDb, "products"),
-          where("category", "==", categoriaId)
+          where("categoria", "==", categoriaId)
         )
       : collection(firestoreDb, "products");
 
@@ -42,7 +42,8 @@ const ItemListContainer = (props) => {
         return { id: doc.id, ...doc.data() };
       });
       setProducts(products);
-    });
+    }).finally(() => setLoading(false));
+    console.log(products)
   }, [categoriaId]);
 
   if (products.length === 0) {
