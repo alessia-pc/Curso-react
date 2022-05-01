@@ -1,16 +1,14 @@
 import { useState, useContext } from "react";
-import { Context } from "../../App";
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { Link } from "react-router-dom";
-import CartWidget from "../CartWidget/CartWidget";
 import CartContext from "../../context/CartContext";
 import { useNotificacion } from "../../notificacion/Notificacion";
 
 const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   const [quantity, setQuantity] = useState(0);
 
-  const { addItem, getQuantityProduct } = useContext(CartContext);
+  const { anadirItem, getQuantityProduct } = useContext(CartContext);
 
   const { setNotificacion } = useNotificacion();
 
@@ -23,7 +21,7 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       precio,
       quantity: cantidad,
     };
-    addItem({ ...objetosProductos });
+    anadirItem({ ...objetosProductos });
     setNotificacion(
       "exito",
       `Se agregaron ${cantidad} ${nombre} correctamente`

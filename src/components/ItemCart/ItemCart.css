@@ -1,0 +1,30 @@
+.container-itemCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemCart {
+  display: flex;
+  background-color: rgb(158, 158, 241);
+  justify-content: space-evenly;
+  width: 75%;
+  font-size: 17px;
+}
+
+.btn-removeItem {
+  background-color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  border-radius: 7px;
+  transition: 0.3s;
+  color: #fff;
+  margin-top: 5px;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-removeItem:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(227, 225, 239);
+  border: 1px solid rgb(0, 0, 0);
+}

@@ -6,8 +6,7 @@ const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addItem = (productToAdd) => {
-    //setCart([...cart, productToAdd]);
+  const anadirItem = (productToAdd) => {
     if (!isInCart(productToAdd.id)) {
       setCart([...cart, productToAdd]);
     } else {
@@ -38,20 +37,15 @@ export const CartContextProvider = ({ children }) => {
     return cart.some((prod) => prod.id === id);
   };
 
-  const clearCart = () => {
-    //sin uso todavía, luego implementar un boton 'limpiar carrito' con esta función
+  const limpiarCart = () => {
     setCart([]);
   };
 
-  const removeItem = (id) => {
-    //sin uso todavía, luego implementar un boton 'basura' con esta función
+  const removerItem = (id) => {
     const productos = cart.filter((prod) => prod.id !== id);
     setCart(productos);
   };
 
-/*   const getQuantityProduct = (id) => {
-    return cart.find((prod) => prod.id === id)?.quantity;
-  }; */
 
   const totalCost = () => {
     const totalCost = Object.values(cart).reduce(
@@ -65,17 +59,16 @@ export const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        addItem,
+        anadirItem,
         getQuantity,
         isInCart,
-        clearCart,
-        removeItem,
-        //getQuantityProduct,
+        limpiarCart,
+        removerItem,
         totalCost
       }}
     >
-      {/* es envuelto aca */}
-      {children} {/* todo cae aca  */}
+      
+      {children}
     </CartContext.Provider>
   );
 };

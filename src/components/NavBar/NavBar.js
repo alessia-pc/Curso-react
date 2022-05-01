@@ -17,10 +17,6 @@ const NavBar = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    /* getCategories().then((categories) => {
-      setCategories(categories);
-    }); */
-
     getDocs(collection(firestoreDb, "categorias")).then((response) => {
       const categorias = response.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
@@ -54,15 +50,15 @@ const NavBar = () => {
             Productos
           </NavLink>
           <ul className="menu-vertical">
-            {categories.map((cat) => (
+            {categories.map((categoria) => (
               <NavLink
-                key={cat.id}
-                to={`/productos/${cat.id}`}
+                key={categoria.id}
+                to={`/productos/${categoria.id}`}
                 className={({ isActive }) =>
                   isActive ? "ActiveOption" : "Option"
                 }
               >
-                {cat.description}
+                {categoria.description}
               </NavLink>
             ))}
           </ul>
@@ -82,10 +78,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
-};
-
-const bontonNavbar = () => {
-  return <div>asyncmock</div>;
 };
 
 export default NavBar;

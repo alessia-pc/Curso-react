@@ -5,6 +5,15 @@
   color: white;
 }
 
+@media (max-width: 800px) {
+  .container-productos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content max-content;
+    text-align: center;
+  }
+}
+
 .img-productos {
   width: 250px;
 }

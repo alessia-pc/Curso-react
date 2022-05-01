@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-//import { getProducts } from "../../asyncmock";
-//import { getProductsByCategoriaId } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
@@ -23,19 +21,6 @@ const ItemListContainer = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    /*
-    getProductsByCategoriaId(categoriaId)
-      .then((prods) => {
-        setProducts(prods);
-        console.log(prods);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-
-      .finally(() => {
-        setLoading(false);
-      }); */
 
     const collectionRef = categoriaId
       ? query(
@@ -48,7 +33,6 @@ const ItemListContainer = (props) => {
           limit(9)
         );
 
-    /* : collection(firestoreDb, "products"); */
 
     getDocs(collectionRef)
       .then((response) => {
@@ -67,7 +51,6 @@ const ItemListContainer = (props) => {
       {loading ? (
         <>
           <Spinner />
-          <div>cargando...</div>
         </>
       ) : products ? (
         <ItemList products={products} />

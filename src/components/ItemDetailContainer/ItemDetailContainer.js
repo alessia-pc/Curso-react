@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getProductById } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
@@ -13,16 +12,6 @@ const ItemDetailContainer = (setCart, cart) => {
   const { productId } = useParams();
 
   useEffect(() => {
-    /* getProductById(productId)
-      .then((item) => {
-        setProduct(item);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      }); */
 
     getDoc(doc(firestoreDb, "products", productId))
       .then((response) => {

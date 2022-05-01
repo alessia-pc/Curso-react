@@ -3,25 +3,25 @@ import "./ItemCount.css";
 import { useState } from "react";
 
 function ItemCount({ stock = 0, initial = 1, onAdd }) {
-  const [count, setCount] = useState(initial);
+  const [cuenta, setCount] = useState(initial);
 
   function incrementar() {
-    if (count < stock) {
-      setCount(count + 1);
+    if (cuenta < stock) {
+      setCount(cuenta + 1);
     }
   }
 
   function decrementar() {
-    if (count > 0) {
-      setCount(count - 1);
+    if (cuenta > 0) {
+      setCount(cuenta - 1);
     }
   }
   return (
     <div>
       <button onClick={decrementar}>-</button>
-      <span>{count}</span>
+      <span>{cuenta}</span>
       <button onClick={incrementar}>+</button>
-      <button onClick={() => onAdd(count)}> Agregar al carrito </button>
+      <button onClick={() => onAdd(cuenta)}> Agregar al carrito </button>
     </div>
   );
 }
