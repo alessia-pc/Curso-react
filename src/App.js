@@ -10,7 +10,7 @@ import Contacto from "./components/Contacto/Contacto";
 import { useState, createContext } from "react";
 import { CartContextProvider } from "./context/CartContext";
 import { NotificacionProvider } from "./notificacion/Notificacion";
-
+import Formulario from "./components/Formulario/Formulario";
 
 export const Context = createContext();
 
@@ -43,6 +43,7 @@ const App = () => {
                 element={<h1 className="error-404">NOT FOUND 404</h1>}
               />
               <Route path="/carrito" element={<Cart />} />
+              <Route path="/formulario" element={<Formulario />}></Route>
             </Routes>
           </BrowserRouter>
         </CartContextProvider>
