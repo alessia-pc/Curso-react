@@ -4,6 +4,7 @@ import "./ItemDetail.css";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import { useNotificacion } from "../../notificacion/Notificacion";
+import { muestraEnMiles } from "../../services/muestraEnMiles";
 
 const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   const [quantity, setQuantity] = useState(0);
@@ -34,7 +35,7 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       <h3>{nombre}</h3>
       <p>
         {" "}
-        <strong>Precio:</strong> {precio}
+        <strong>Precio:</strong> $ {muestraEnMiles(precio)}
       </p>
       <img className="img-productos" src={img} alt={nombre} />
       <p>{descripcion}</p>
@@ -46,7 +47,9 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       <footer>
         {quantity > 0 ? (
           <button>
-            <Link to="/carrito" className="btn-ir-al-carrito">Ir al carrito</Link>
+            <Link to="/carrito" className="btn-ir-al-carrito">
+              Ir al carrito
+            </Link>
           </button>
         ) : (
           <ItemCount

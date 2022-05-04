@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CartContext from "../../context/CartContext";
+import { muestraEnMiles } from "../../services/muestraEnMiles";
 import "./ItemCart.css";
 
 const ItemCart = ({
@@ -17,10 +18,10 @@ const ItemCart = ({
           <strong className="nombre-producto">{nombre}</strong>
         </p>
         <p>
-          <strong>Precio unitario:</strong> $ {precio}
+          <strong>Precio unitario:</strong> $ {muestraEnMiles(precio)}
         </p>
         <p>
-          <strong>Subtotal:</strong> $ {quantity * precio}{" "}
+          <strong>Subtotal:</strong> $ {muestraEnMiles (quantity * precio)}{" "}
         </p>
         <p>
           <strong>Cantidad:</strong>

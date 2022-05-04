@@ -14,33 +14,40 @@ import { firestoreDb } from "../../services/firebase/index";
 
 const Formulario = () => {
   const [campoFormulario, setCampoFormulario] = useState("");
+  const [nombreYapellido, setNombreYapellido] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [loading, setLoading] = useState(false);
   const [ordenId, setOrdenId] = useState(null);
   const { cart, totalCost } = useContext(CartContext);
+  const [comprador, setComprador] = useState("");
 
   const subirFormulario = (e) => {
     e.preventDefault();
   };
 
-  const cambiosFormulario = (evento) => {
-    const name = evento.target.name;
-    const value = evento.target.value;
-    setCampoFormulario((values) => ({ ...values, [name]: value }));
-  };
-
   const crearOrden = () => {
     setLoading(true);
 
+     const objetoComprador = {
+       nombre: nombreYapellido,
+       correo: correo,
+       direccion: direccion,
+       telefono: telefono,
+     };
+     setComprador(objetoComprador);
+
     const objetoOrder = {
-      productoDeOrden: cart.map((producto) => {
+      items: cart.map((producto) => {
         return {
           id: producto.id,
-          name: producto.name,
+          nombre: producto.nombre,
           quantity: producto.quantity,
-          priceUni: producto.price,
+          precio: producto.precio
         };
       }),
-      comprador: campoFormulario,
+      comprador: objetoComprador,
       total: totalCost(),
       date: new Date(),
     };
@@ -121,41 +128,51 @@ const Formulario = () => {
               <input
                 placeholder="Nombre y apellido"
                 type="text"
-                onChange={cambiosFormulario}
                 name="nombre"
-                value={campoFormulario.nombre}
+                onChange={(e) => {
+                  setNombreYapellido(e.target.value);
+                }}
               />
             </label>
             <label>
               <input
                 placeholder="Email"
                 type="text"
-                onChange={cambiosFormulario}
                 name="correo"
-                value={campoFormulario.correo}
+                onChange={(e) => {
+                  setCorreo(e.target.value);
+                }}
               />
             </label>
             <label>
               <input
                 placeholder="Dirección de envío"
                 type="text"
-                onChange={cambiosFormulario}
                 name="direccion"
-                value={campoFormulario.direccion}
+                onChange={(e) => {
+                  setDireccion(e.target.value);
+                }}
               />
             </label>
             <label>
               <input
                 placeholder="Teléfono"
                 type="text"
-                onChange={cambiosFormulario}
                 name="telefono"
-                value={campoFormulario.telefono}
+                onChange={(e) => {
+                  setTelefono(e.target.value);
+                }}
               />
             </label>
           </div>
           <div>
-            <button onClick={() => crearOrden()}>Finalizar compra</button>
+            <button
+              onClick={(e) => {
+                crearOrden();
+              }}
+            >
+              Finalizar compra
+            </button>
           </div>
         </div>
       </div>
