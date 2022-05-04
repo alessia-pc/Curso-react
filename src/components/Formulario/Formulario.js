@@ -13,7 +13,7 @@ import {
 import { firestoreDb } from "../../services/firebase/index";
 
 const Formulario = () => {
-  const [campoFormulario, setCampoFormulario] = useState("");
+  //const [campoFormulario, setCampoFormulario] = useState("");
   const [nombreYapellido, setNombreYapellido] = useState("");
   const [correo, setCorreo] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -22,10 +22,6 @@ const Formulario = () => {
   const [ordenId, setOrdenId] = useState(null);
   const { cart, totalCost } = useContext(CartContext);
   const [comprador, setComprador] = useState("");
-
-  const subirFormulario = (e) => {
-    e.preventDefault();
-  };
 
   const crearOrden = () => {
     setLoading(true);
@@ -110,6 +106,7 @@ const Formulario = () => {
         <p>
           En los próximos 3 días nos contactarémos para coordinar la entrega
         </p>
+        <p>Su producto es: {cart}</p>
       </>
     );
   }
@@ -119,22 +116,23 @@ const Formulario = () => {
   }
 
   return (
-    <form onSubmit={subirFormulario}>
+    <form>
       <h1 className="Title">Formulario</h1>
-      <div className="Form">
-        <div className="Field">
+      <div className="Formulario">
+        <div>
           <div className="Inputs">
-            <label>
-              <input
+            <label> Nombre y apellido:
+              <input 
                 placeholder="Nombre y apellido"
                 type="text"
                 name="nombre"
                 onChange={(e) => {
                   setNombreYapellido(e.target.value);
                 }}
+                
               />
             </label>
-            <label>
+            <label> Email:
               <input
                 placeholder="Email"
                 type="text"
@@ -144,7 +142,7 @@ const Formulario = () => {
                 }}
               />
             </label>
-            <label>
+            <label> Dirección:
               <input
                 placeholder="Dirección de envío"
                 type="text"
@@ -154,7 +152,7 @@ const Formulario = () => {
                 }}
               />
             </label>
-            <label>
+            <label> Teléfono:
               <input
                 placeholder="Teléfono"
                 type="text"

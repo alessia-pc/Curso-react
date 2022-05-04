@@ -13,8 +13,11 @@ const Cart = () => {
       <div>
         <h2>El carrito se encuentra vacío</h2>
 
-        <button className="link-noHayProductos">
-          <Link to={"/productos"} className="texto-noHayProductos">
+        <button>
+          <Link
+            className="texto-noHayProductos"
+             to={"/productos"}
+          >
             Conocé nuestros productos
           </Link>
         </button>
@@ -33,10 +36,10 @@ const Cart = () => {
         <button className="btn-clearCart" onClick={() => limpiarCart()}>
           Vaciar carrito
         </button>
-        <button className="btn-comprar">Realizar compra</button>
         {/* aun no está en uso */}
-        <Link to={"/formulario"}>Continuar compra</Link>
-      </div>
+      
+        <button><Link  className="btn-comprar" to={"/formulario"}>Finalizar compra</Link></button>
+    </div>
     </div>
   );
 };

@@ -1,0 +1,8 @@
+.Formulario {
+    background-color: rgb(213, 231, 213);
+    width: 60%;
+
+}
+.Inputs {
+    display: grid;
+}

@@ -25,7 +25,10 @@
   margin-top: 5px;
 }
 
-.link-noHayProductos:hover,
+.texto-noHayProductos {
+  color: white;
+  text-decoration: none;
+}
 .texto-noHayProductos:hover {
   color: rgb(20, 87, 244);
   background-color: rgb(227, 225, 239);
@@ -33,8 +36,12 @@
   text-decoration: none;
 }
 
-.texto-noHayProductos {
-  color: white;
+
+.btn-comprar {
   text-decoration: none;
+  color: white;
+}
+.btn-comprar:hover {
+  color: rgb(20, 87, 244) ;
 }
 
