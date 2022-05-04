@@ -11,7 +11,6 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { firestoreDb } from "../../services/firebase/index";
-import { Link } from "react-router-dom";
 
 const Formulario = () => {
   const [campoFormulario, setCampoFormulario] = useState("");
@@ -33,15 +32,15 @@ const Formulario = () => {
     setLoading(true);
 
     const objetoOrder = {
-      productoDeOrden: cart.map((prod) => {
+      productoDeOrden: cart.map((producto) => {
         return {
-          id: prod.id,
-          name: prod.name,
-          quantity: prod.quantity,
-          priceUni: prod.price,
+          id: producto.id,
+          name: producto.name,
+          quantity: producto.quantity,
+          priceUni: producto.price,
         };
       }),
-      caomprador: campoFormulario,
+      comprador: campoFormulario,
       total: totalCost(),
       date: new Date(),
     };
@@ -94,7 +93,6 @@ const Formulario = () => {
       })
       .finally(() => {
         setLoading(false);
-        setOrdenId();
       });
   };
 
@@ -103,7 +101,7 @@ const Formulario = () => {
       <>
         <h3>El id de su orden es: {ordenId}</h3>
         <p>
-          Pronto nos contactaremos para coordinar la entrega
+          En los próximos 3 días nos contactarémos para coordinar la entrega
         </p>
       </>
     );
@@ -114,8 +112,8 @@ const Formulario = () => {
   }
 
   return (
-    <form onSubmit={cambiosFormulario}>
-      <h1 className="Title">Tus datos</h1>
+    <form onSubmit={subirFormulario}>
+      <h1 className="Title">Formulario</h1>
       <div className="Form">
         <div className="Field">
           <div className="Inputs">
