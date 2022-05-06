@@ -8,19 +8,17 @@ import { getDoc, doc } from "firebase/firestore";
 const ItemDetailContainer = (setCart, cart) => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [isFound, setIsFound] = useState("");
   const { productId } = useParams();
 
   useEffect(() => {
-
     getDoc(doc(firestoreDb, "products", productId))
       .then((response) => {
-        console.log(response);
-        const product = { id: response.id, ...response.data() };
-        setProduct(product);
+        setIsFound(response.data());
+        const productos = { id: response.id, ...response.data() };
+        setProduct(productos);
       })
       .finally(() => setLoading(false));
-    console.log(product);
     return () => {
       setProduct();
     };
@@ -30,7 +28,7 @@ const ItemDetailContainer = (setCart, cart) => {
     <div className="ItemDetailContainer">
       {loading ? (
         <Spinner />
-      ) : product ? (
+      ) : isFound ? (
         <ItemDetail {...product} setCart={setCart} cart={cart} />
       ) : (
         <h1>El producto no existe</h1>

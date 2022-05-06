@@ -24,7 +24,6 @@ const Cart = () => {
       </div>
     );
   }
-  console.log(totalCost());
   return (
     <div>
       <h3>Estos son los productos que se encuentran en tu carrito:</h3>

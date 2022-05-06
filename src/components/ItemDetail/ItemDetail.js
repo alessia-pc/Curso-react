@@ -28,7 +28,6 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
       `Se agregaron ${cantidad} ${nombre} correctamente`
     );
   }
-  console.log(quantity);
 
   return (
     <div className="detalle-productos">

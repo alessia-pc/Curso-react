@@ -11,28 +11,34 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { firestoreDb } from "../../services/firebase/index";
+import { Link } from "react-router-dom";
+
+const objetoComprador = {
+  nombre: "",
+  telefono: "",
+  email: "",
+  direccion: "",
+};
 
 const Formulario = () => {
-  //const [campoFormulario, setCampoFormulario] = useState("");
-  const [nombreYapellido, setNombreYapellido] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [direccion, setDireccion] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [loading, setLoading] = useState(false);
+  const { cart, limpiarCart, totalCost } = useContext(CartContext);
+  const [comprador, setComprador] = useState(objetoComprador);
+  const [ordenEstado, setOrdenEstado] = useState(null);
   const [ordenId, setOrdenId] = useState(null);
-  const { cart, totalCost } = useContext(CartContext);
-  const [comprador, setComprador] = useState("");
 
-  const crearOrden = () => {
-    setLoading(true);
+  const getForm = (e) => {
+    const { name, value } = e.target;
+    setComprador({ ...comprador, [name]: value });
+  };
 
-     const objetoComprador = {
-       nombre: nombreYapellido,
-       correo: correo,
-       direccion: direccion,
-       telefono: telefono,
-     };
-     setComprador(objetoComprador);
+  const orderConfirmed = () => {
+    setComprador(objetoComprador);
+    limpiarCart();
+    setOrdenEstado("confirmado");
+  };
+
+  const crearOrden = async () => {
+    setOrdenEstado("procesando");
 
     const objetoOrder = {
       items: cart.map((producto) => {
@@ -40,141 +46,114 @@ const Formulario = () => {
           id: producto.id,
           nombre: producto.nombre,
           quantity: producto.quantity,
-          precio: producto.precio
+          precio: producto.precio,
         };
       }),
-      comprador: objetoComprador,
+      compradorUser: comprador,
       total: totalCost(),
       date: new Date(),
     };
+    const collectionRef = collection(firestoreDb, "orders");
+    setOrdenId((await addDoc(collectionRef, objetoOrder)).id);
+    orderConfirmed(ordenId);
+  };
 
-    const ids = cart.map((producto) => producto.id);
-
+  const prodAgotado = () => {
+    const ids = cart.map((p) => p.id);
     const batch = writeBatch(firestoreDb);
-
     const collectionRef = collection(firestoreDb, "products");
 
-    const noHayStock = [];
-
     getDocs(query(collectionRef, where(documentId(), "in", ids)))
-      .then((respuesta) => {
-        respuesta.docs.forEach((documento) => {
-          const dataDoc = documento.data();
+      .then((response) => {
+        response.docs.forEach((doc) => {
+          const dataDoc = doc.data();
+          const prodQuantity = cart.find((p) => p.id === doc.id)?.quantity; 
 
-          const productoCantidad = cart.find(
-            (producto) => producto.id === documento.id
-          )?.quantity;
-
-          if (dataDoc.stock >= productoCantidad) {
-            batch.update(documento.ref, {
-              stock: dataDoc.stock - productoCantidad,
-            });
-          } else {
-            noHayStock.push({ id: documento.id, ...dataDoc });
+          if (dataDoc.stock >= prodQuantity) {
+            batch.update(doc.ref, { stock: dataDoc.stock - prodQuantity });
+            batch.commit();
           }
         });
       })
-      .then(() => {
-        if (noHayStock.length === 0) {
-          const collectionRef = collection(firestoreDb, "orders");
-          return addDoc(collectionRef, objetoOrder);
-        } else {
-          return Promise.reject({
-            name: "noHayStock",
-            products: noHayStock,
-          });
-        }
-      })
-      .then(({ id }) => {
-        batch.commit();
-        const ordenId = id;
-        console.log(`El id de la orden es ${id}`);
-        return setOrdenId(ordenId);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
+      .catch((err) => {
+        console.log(err);
       });
   };
+  const orderAndStock = () => {
+    crearOrden();
+    prodAgotado();
+  };
 
-  if (ordenId) {
+  if (ordenEstado === "confirmado") {
     return (
       <>
-        <h3>El id de su orden es: {ordenId}</h3>
-        <p>
-          En los próximos 3 días nos contactarémos para coordinar la entrega
-        </p>
-        <p>Su producto es: {cart}</p>
+        <div>
+          <h1>Gracias por tu compra!</h1>
+          <p>Tu numero de orden es {ordenId} .</p>
+          <button>
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              Pagina Principal
+            </Link>{" "}
+          </button>
+        </div>
+      </>
+    );
+  } else if (ordenEstado === "procesando") {
+    return (
+      <>
+        <div>
+          <h1>Estamos procesando tu orden.</h1>
+        </div>
       </>
     );
   }
 
-  if (loading) {
-    return <h2>Se está generando su orden</h2>;
-  }
-
   return (
-    <form>
-      <h1 className="Title">Formulario</h1>
-      <div className="Formulario">
-        <div>
-          <div className="Inputs">
-            <label> Nombre y apellido:
-              <input 
-                placeholder="Nombre y apellido"
-                type="text"
-                name="nombre"
-                onChange={(e) => {
-                  setNombreYapellido(e.target.value);
-                }}
-                
-              />
-            </label>
-            <label> Email:
-              <input
-                placeholder="Email"
-                type="text"
-                name="correo"
-                onChange={(e) => {
-                  setCorreo(e.target.value);
-                }}
-              />
-            </label>
-            <label> Dirección:
-              <input
-                placeholder="Dirección de envío"
-                type="text"
-                name="direccion"
-                onChange={(e) => {
-                  setDireccion(e.target.value);
-                }}
-              />
-            </label>
-            <label> Teléfono:
-              <input
-                placeholder="Teléfono"
-                type="text"
-                name="telefono"
-                onChange={(e) => {
-                  setTelefono(e.target.value);
-                }}
-              />
-            </label>
-          </div>
-          <div>
-            <button
-              onClick={(e) => {
-                crearOrden();
-              }}
-            >
-              Finalizar compra
-            </button>
-          </div>
-        </div>
+    <>
+      <div className="formContainer">
+        <form className="formContainer__form">
+          <label>Nombre:</label>
+          <input
+            type="text"
+            name="nombre"
+            value={comprador.nombre}
+            onChange={getForm}
+            className="form__input"
+            placeholder="Escribí tu nombre"
+          />
+          <label>Telefono:</label>
+          <input
+            type="text"
+            name="telefono"
+            value={comprador.telefono}
+            onChange={getForm}
+            className="form__input"
+            placeholder="Escribí tu telefono"
+          />
+          <label>Email:</label>
+          <input
+            type="text"
+            name="email"
+            value={comprador.email}
+            onChange={getForm}
+            className="form__input"
+            placeholder="Escribí tu email"
+          />
+
+          <label>Direccion:</label>
+          <input
+            type="text"
+            name="direccion"
+            value={comprador.direccion}
+            onChange={getForm}
+            className="form__input"
+            placeholder="Escribí tu dirección"
+          />
+
+          <button onClick={() => orderAndStock()}> Ordenar </button>
+        </form>
       </div>
-    </form>
+    </>
   );
 };
 

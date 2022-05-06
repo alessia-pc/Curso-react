@@ -49,7 +49,7 @@ export const CartContextProvider = ({ children }) => {
 
   const totalCost = () => {
     const totalCost = Object.values(cart).reduce(
-      (acc, { quantity, precio}) => acc + quantity * precio,
+      (accion, { quantity, precio}) => accion + quantity * precio,
       0
     );
     return totalCost;

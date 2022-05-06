@@ -36,14 +36,12 @@ const ItemListContainer = (props) => {
 
     getDocs(collectionRef)
       .then((response) => {
-        console.log(response);
         const products = response.docs.map((doc) => {
           return { id: doc.id, ...doc.data() };
         });
         setProducts(products);
       })
       .finally(() => setLoading(false));
-    console.log(products);
   }, [categoriaId]);
 
   return (

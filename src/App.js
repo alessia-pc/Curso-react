@@ -7,16 +7,11 @@ import Inicio from "./components/Inicio/Inicio";
 import Cart from "./components/Cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contacto from "./components/Contacto/Contacto";
-import { useState, createContext } from "react";
 import { CartContextProvider } from "./context/CartContext";
 import { NotificacionProvider } from "./notificacion/Notificacion";
 import Formulario from "./components/Formulario/Formulario";
 
-export const Context = createContext();
-
 const App = () => {
-  const [cart, setCart] = useState([]);
-  console.log(cart);
 
   return (
     <div className="App">
@@ -25,6 +20,10 @@ const App = () => {
           <BrowserRouter>
             <NavBar />
             <Routes>
+              <Route
+                path="*"
+                element={<h1 className="error-404">NOT FOUND 404</h1>}
+              />
               <Route path="/" element={<Inicio />} />
               <Route path="/inicio" element={<Inicio />} />
               <Route path="/productos" element={<ItemListContainer />} />
@@ -38,10 +37,6 @@ const App = () => {
               />
               <Route path="/contacto" element={<Contacto />}></Route>
 
-              <Route
-                path="*"
-                element={<h1 className="error-404">NOT FOUND 404</h1>}
-              />
               <Route path="/carrito" element={<Cart />} />
               <Route path="/formulario" element={<Formulario />}></Route>
             </Routes>
