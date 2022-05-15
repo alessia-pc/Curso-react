@@ -3,7 +3,7 @@
 Soy Alessia Puga Cammuso y este es mi proyecto para el curso de React de CoderHouse. Mi proyecto se llama Tierra ruidosa y es una página en la cual encuentras productos que te llevan a vivir la musica de una manera increible! En el proyecto utilicé la libreria de routing y algunos hooks!
  -->
 
-# TIERRA RUIDOSA 🎶
+# SonorouS 🎧
 
 ## Instalación
 
@@ -60,7 +60,7 @@ npm start
 
 La colección order también presenta distintas colecciones:
 
--Coleccion: _compradorUser_:
+- Coleccion: _compradorUser_:
 
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
@@ -69,13 +69,13 @@ La colección order también presenta distintas colecciones:
 | direccion | string | Dirección del usuario |
 | email | string | Email del usuario |
 
--Coleccion: _date_:
+- Coleccion: _date_:
 
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | date | timestamp | Hora de la orden |
 
--Coleccion: _items_:
+- Coleccion: _items_:
 
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
@@ -84,7 +84,7 @@ La colección order también presenta distintas colecciones:
 | precio | number | precio del item |
 | quantity | number | cantidad del item |
 
--Coleccion: _total_:
+- Coleccion: _total_:
  
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |

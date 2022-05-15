@@ -14,7 +14,7 @@ const Inicio = () => {
       </picture>
 
       <p className="nombre-de-la-pagina">
-        <strong>TIERRA RUIDOSA</strong>{" "}
+        <strong>SonorouS</strong>{" "}
       </p>
 
       <ul>
