@@ -1,8 +1,58 @@
-.Formulario {
-    background-color: rgb(213, 231, 213);
-    width: 60%;
 
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.Inputs {
-    display: grid;
+
+.formContainer__form {
+  background-color: #5d76a9;
+  color: white;
+  width: 70%;
+  border: 2px solid rgb(61, 32, 139);
+}
+
+.formContainer__form input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.submit-btn {
+  align-self: flex-end;
+  width: 80px;
+}
+.error {
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.heading {
+  font-size: 25px;
+  margin-top: 20px;
+  background-color: #dda;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: rgb(20, 9, 68);
+  border: none;
+}
+.btn-primary:hover{
+  
+  background-color: rgb(20, 9, 68);
+  border: none;
 }

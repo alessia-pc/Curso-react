@@ -9,7 +9,8 @@ import { muestraEnMiles } from "../../services/muestraEnMiles";
 const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   const [quantity, setQuantity] = useState(0);
 
-  const { anadirItem, getQuantityProduct } = useContext(CartContext);
+  const { anadirItem, getQuantityProducto, getQuantity } =
+    useContext(CartContext);
 
   const { setNotificacion } = useNotificacion();
 
@@ -30,35 +31,51 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
   }
 
   return (
-    <div className="detalle-productos">
-      <h3>{nombre}</h3>
-      <p>
-        {" "}
-        <strong>Precio:</strong> $ {muestraEnMiles(precio)}
-      </p>
-      <img className="img-productos" src={img} alt={nombre} />
-      <p>{descripcion}</p>
-      <p>
-        {" "}
-        <strong>Stock:</strong> {stock}{" "}
-      </p>
+    <div>
+      <div className="detalle-productos">
+        <div className="divImgProductos">
+          <img className="img-productos" src={img} alt={nombre} />
+        </div>
 
-      <footer>
-        {quantity > 0 ? (
-          <button>
-            <Link to="/carrito" className="btn-ir-al-carrito">
-              Ir al carrito
+        <div className="info-producto">
+          <h3>{nombre}</h3>
+          <p>
+            {" "}
+            <strong>Precio:</strong> $ {muestraEnMiles(precio)}
+          </p>
+
+          <p>
+            {" "}
+            <strong>Stock:</strong> {stock}{" "}
+          </p>
+
+          <div>
+            {stock > 0 ? (
+              <ItemCount
+                onAdd={handleOnAdd}
+                initial={getQuantityProducto(id)}
+                stock={stock}
+              />
+            ) : (
+              <span>
+                <strong>Sin stock</strong>
+              </span>
+            )}
+          </div>
+
+          <div
+            className={getQuantity() === 0 ? "irCarritoInvisible" : "irCarrito"}
+          >
+            <Link className="linkIrAlCarrito" to="/carrito">
+              <span>Ir al carrito</span>
             </Link>
-          </button>
-        ) : (
-          <ItemCount
-            onAdd={handleOnAdd}
-            //initial={getQuantityProduct(id)}
-            initial={1}
-            stock={15}
-          />
-        )}
-      </footer>
+          </div>
+        </div>
+      </div>
+
+      <div className="descripcionProducto">
+        <p>{descripcion}</p>
+      </div>
     </div>
   );
 };

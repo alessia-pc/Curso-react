@@ -8,7 +8,7 @@ const CartWidget = () => {
   const { getQuantity } = useContext(CartContext);
 
   return (
-    <div className= "carrito-compras">
+    <div className="carrito-compras">
       <Link to="/carrito">
         <img src={Carrito} width="30px" alt="carrito de compras" />
         <p className={`${getQuantity() === 0 ? "oculto" : "numero-carrito"}`}>

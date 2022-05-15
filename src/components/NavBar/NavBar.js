@@ -1,17 +1,11 @@
 import "./NavBar.css";
 import icono from "./icons8-onda-sonora-26.png";
 import CartWidget from "../CartWidget/CartWidget";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getCategories } from "../../asyncmock";
+//import { getCategories } from "../../asyncmock";
 import { firestoreDb } from "../../services/firebase";
 import { getDocs, collection } from "firebase/firestore";
-
-const botonesNavBar = [
-  { id: "inicio", nombreBoton: "Inicio" },
-  { id: "productos", nombreBoton: "Productos" },
-  { id: "contacto", nombreBoton: "Contacto" },
-];
 
 const NavBar = () => {
   const [categories, setCategories] = useState([]);

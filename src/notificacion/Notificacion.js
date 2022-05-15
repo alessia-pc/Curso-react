@@ -10,11 +10,8 @@ const Notificacion = ({
     position: "absolute",
     top: 100,
     right: severidad === "exito" ? 5 : 0,
-    //backgroundColor: severidad === "exito" ? "green" : "red",
-
     padding: "10px 20px 10px 20px",
     fontSize: "17px",
-    //color: "white",
   };
 
   if (mensaje === "") {
@@ -30,16 +27,7 @@ const Notificacion = ({
       }
     : {};
 
-  return (
-    <div
-      {...configuracion} //exparso este objeto (lo de abajo) como props
-
-      /* style={notificacionStyles}
-      className={`${severidad === "exito" ? "Exito" : "Error"} Mensaje`} */
-    >
-      {mensaje}
-    </div>
-  );
+  return <div {...configuracion}>{mensaje}</div>;
 };
 
 const NotificacionContext = createContext();
@@ -65,5 +53,5 @@ export const NotificacionProvider = ({ children }) => {
 };
 
 export const useNotificacion = () => {
-    return useContext(NotificacionContext)
-}
+  return useContext(NotificacionContext);
+};

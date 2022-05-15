@@ -9,6 +9,7 @@ const products = [
     descripcion:
       "Los auriculares Beats Studio3 Wireless ofrecen un sonido extraordinario gracias a la tecnología Pure ANC (cancelación de ruido activa), que bloquea el ruido exterior de forma activa, y a la calibración de audio en tiempo real, que mantiene la nitidez, el rango y la expresividad de tu música. Detectan continuamente los sonidos exteriores que hay que bloquear y optimizan automáticamente el ajuste en tiempo real para que la música de tus artistas preferidos suene tal y como la concibieron.",
   },
+  
   {
     id: "producto2",
     nombre: "Auriculares Beats Solo3 Wireless - Oro rosa",

@@ -12,16 +12,22 @@ function ItemCount({ stock = 0, initial = 1, onAdd }) {
   }
 
   function decrementar() {
-    if (cuenta > 0) {
+    if (cuenta > 1) {
       setCount(cuenta - 1);
     }
   }
   return (
     <div>
-      <button onClick={decrementar}>-</button>
-      <span>{cuenta}</span>
-      <button onClick={incrementar}>+</button>
-      <button onClick={() => onAdd(cuenta)}> Agregar al carrito </button>
+      <button className="btn-decrementar" onClick={decrementar}>
+        -
+      </button>
+      <span className="num-cuenta">{cuenta}</span>
+      <button className="btn-incrementar" onClick={incrementar}>
+        +
+      </button>
+      <button className="btn-anadir-al-carrito" onClick={() => onAdd(cuenta)}>
+        Agregar al carrito
+      </button>
     </div>
   );
 }

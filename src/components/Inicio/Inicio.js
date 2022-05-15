@@ -1,6 +1,6 @@
-import './Inicio.css'
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
-import Footer from '../Footer/Footer'
+import "./Inicio.css";
+import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import Footer from "../Footer/Footer";
 
 const Inicio = () => {
   return (
@@ -13,7 +13,9 @@ const Inicio = () => {
         ></img>
       </picture>
 
-      <p className='nombre-de-la-pagina'><strong>TIERRA RUIDOSA</strong> </p>
+      <p className="nombre-de-la-pagina">
+        <strong>TIERRA RUIDOSA</strong>{" "}
+      </p>
 
       <ul>
         <ItemListContainer />
@@ -21,6 +23,6 @@ const Inicio = () => {
       <Footer />
     </div>
   );
-}
+};
 
-export default Inicio
+export default Inicio;

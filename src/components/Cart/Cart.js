@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CartContext from "../../context/CartContext";
 import ItemCart from "../ItemCart/ItemCart";
 import { Link } from "react-router-dom";
@@ -14,10 +14,7 @@ const Cart = () => {
         <h2>El carrito se encuentra vacío</h2>
 
         <button>
-          <Link
-            className="texto-noHayProductos"
-             to={"/productos"}
-          >
+          <Link className="texto-noHayProductos" to={"/productos"}>
             Conocé nuestros productos
           </Link>
         </button>
@@ -30,15 +27,18 @@ const Cart = () => {
       {cart.map((producto) => (
         <ItemCart key={producto.id} {...producto} />
       ))}
-      <span> El total es: $ {muestraEnMiles (totalCost())} </span>
+      <span> El total es: $ {muestraEnMiles(totalCost())} </span>
       <div className="botonesCart">
         <button className="btn-clearCart" onClick={() => limpiarCart()}>
           Vaciar carrito
         </button>
-        {/* aun no está en uso */}
-      
-        <button><Link  className="btn-comprar" to={"/formulario"}>Finalizar compra</Link></button>
-    </div>
+
+        <button>
+          <Link className="btn-comprar" to={"/formulario"}>
+            Finalizar compra
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };

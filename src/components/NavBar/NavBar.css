@@ -1,6 +1,6 @@
 .NavBar {
   width: 100%;
-  background-color: rgb(60, 60, 163);
+  background-color:#0E3386;
   font-size: 20px;
 }
 
@@ -60,6 +60,6 @@
 
 
 .ActiveOption {
-  background: rgb(23, 23, 118);
-  height: 36px;
+  background-color: rgb(23, 23, 118);
+  
 }

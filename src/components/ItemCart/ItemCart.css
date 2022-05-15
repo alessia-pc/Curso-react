@@ -4,17 +4,32 @@
   align-items: center;
 }
 
+.nombre-producto {
+  background-color: rgb(188, 188, 238);
+  border: 2px rgb(50, 50, 158) solid;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+
 .itemCart {
   display: flex;
-  background-color: rgb(158, 158, 241);
+  background-color: rgb(188, 188, 238);
   justify-content: space-evenly;
+  border-radius: 5px;
   width: 75%;
   font-size: 17px;
+  margin: 10px 0;
+  padding: 15px 0 5px 0;
+}
+
+.container-info-producto {
+  padding-top: 5px;
 }
 
 .btn-removeItem {
-  background-color: rgb(0, 0, 0);
-  padding: 12px 20px;
+  background-color: rgb(188, 188, 238);
+  padding: 5px 10px;
   border-radius: 7px;
   transition: 0.3s;
   color: #fff;
@@ -24,7 +39,12 @@
 }
 
 .btn-removeItem:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(227, 225, 239);
-  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(188, 188, 238);
+  padding: 5px 10px;
+  border-radius: 7px;
+  transition: 0.3s;
+  color: #fff;
+  margin-top: 5px;
+  text-decoration: none;
+  border: none;
 }

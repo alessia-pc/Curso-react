@@ -12,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { firestoreDb } from "../../services/firebase/index";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const objetoComprador = {
   nombre: "",
@@ -26,12 +28,31 @@ const Formulario = () => {
   const [ordenEstado, setOrdenEstado] = useState(null);
   const [ordenId, setOrdenId] = useState(null);
 
-  const getForm = (e) => {
-    const { name, value } = e.target;
-    setComprador({ ...comprador, [name]: value });
-  };
+  const formik = useFormik({
+    initialValues: {
+      nombre: "",
+      telefono: "",
+      email: "",
+      confirmEmail: "",
+      direccion: "",
+    },
 
-  const orderConfirmed = () => {
+    validationSchema: Yup.object().shape({
+      nombre: Yup.string().required("Nombre y apellido requerido"),
+      telefono: Yup.string().required("Telefono requerido"),
+      email: Yup.string().email("Email inválido").required("Email requerido"),
+      confirmEmail: Yup.string()
+        .oneOf([Yup.ref("email"), null], "Los emails deben coincidir")
+        .required("Confirmar Email requerido"),
+      direccion: Yup.string().required("Dirección requerida"),
+    }),
+
+    onSubmit: (values) => {
+      ordenConStock();
+    },
+  });
+
+  const ordenConfirmada = () => {
     setComprador(objetoComprador);
     limpiarCart();
     setOrdenEstado("confirmado");
@@ -39,6 +60,8 @@ const Formulario = () => {
 
   const crearOrden = async () => {
     setOrdenEstado("procesando");
+
+    const { nombre, telefono, email, direccion } = formik.values;
 
     const objetoOrder = {
       items: cart.map((producto) => {
@@ -49,13 +72,13 @@ const Formulario = () => {
           precio: producto.precio,
         };
       }),
-      compradorUser: comprador,
+      compradorUser: { nombre, telefono, email, direccion },
       total: totalCost(),
       date: new Date(),
     };
     const collectionRef = collection(firestoreDb, "orders");
     setOrdenId((await addDoc(collectionRef, objetoOrder)).id);
-    orderConfirmed(ordenId);
+    ordenConfirmada(ordenId);
   };
 
   const prodAgotado = () => {
@@ -67,7 +90,7 @@ const Formulario = () => {
       .then((response) => {
         response.docs.forEach((doc) => {
           const dataDoc = doc.data();
-          const prodQuantity = cart.find((p) => p.id === doc.id)?.quantity; 
+          const prodQuantity = cart.find((p) => p.id === doc.id)?.quantity;
 
           if (dataDoc.stock >= prodQuantity) {
             batch.update(doc.ref, { stock: dataDoc.stock - prodQuantity });
@@ -79,17 +102,31 @@ const Formulario = () => {
         console.log(err);
       });
   };
-  const orderAndStock = () => {
+  const ordenConStock = () => {
     crearOrden();
     prodAgotado();
   };
+
+  if (cart.length === 0 && ordenEstado !== "confirmado") {
+    return (
+      <>
+        <div>Debes tener productos en el carrito</div>
+        <button>
+          <Link className="texto-noHayProductos" to={"/productos"}>
+            Volver a productos
+          </Link>
+        </button>
+      </>
+    );
+  }
 
   if (ordenEstado === "confirmado") {
     return (
       <>
         <div>
           <h1>Gracias por tu compra!</h1>
-          <p>Tu numero de orden es {ordenId} .</p>
+          <div>Tu número de orden es {ordenId} </div>
+
           <button>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               Pagina Principal
@@ -110,47 +147,90 @@ const Formulario = () => {
 
   return (
     <>
-      <div className="formContainer">
-        <form className="formContainer__form">
-          <label>Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={comprador.nombre}
-            onChange={getForm}
-            className="form__input"
-            placeholder="Escribí tu nombre"
-          />
-          <label>Telefono:</label>
-          <input
-            type="text"
-            name="telefono"
-            value={comprador.telefono}
-            onChange={getForm}
-            className="form__input"
-            placeholder="Escribí tu telefono"
-          />
-          <label>Email:</label>
-          <input
-            type="text"
-            name="email"
-            value={comprador.email}
-            onChange={getForm}
-            className="form__input"
-            placeholder="Escribí tu email"
-          />
+      <div className="formContainer container">
+        <form onSubmit={formik.handleSubmit} className="formContainer__form">
+          <h2>Ingresá tus datos!</h2>
 
-          <label>Direccion:</label>
-          <input
-            type="text"
-            name="direccion"
-            value={comprador.direccion}
-            onChange={getForm}
-            className="form__input"
-            placeholder="Escribí tu dirección"
-          />
+          <div>
+            <input
+              type="text"
+              name="nombre"
+              value={formik.values.nombre}
+              onChange={formik.handleChange}
+              className="form__input"
+              placeholder="Escribí tu nombre completo"
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.nombre && formik.errors.nombre ? (
+              <span className="error">{formik.errors.nombre}</span>
+            ) : null}
+          </div>
 
-          <button onClick={() => orderAndStock()}> Ordenar </button>
+          <div>
+            <input
+              type="text"
+              name="telefono"
+              value={formik.values.telefono}
+              onChange={formik.handleChange}
+              className="form__input"
+              placeholder="Escribí tu telefono"
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.telefono && formik.errors.telefono ? (
+              <span className="error">{formik.errors.telefono}</span>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              className="form__input"
+              placeholder="Escribí tu email"
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <span className="error">{formik.errors.email}</span>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="confirmEmail"
+              value={formik.values.confirmEmail}
+              onChange={formik.handleChange}
+              className="form__input"
+              placeholder="Confirmá tu email"
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.confirmEmail && formik.errors.confirmEmail ? (
+              <span className="error">{formik.errors.confirmEmail}</span>
+            ) : null}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="direccion"
+              value={formik.values.direccion}
+              onChange={formik.handleChange}
+              className="form__input"
+              placeholder="Escribí tu dirección"
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.direccion && formik.errors.direccion ? (
+              <span className="error">{formik.errors.direccion}</span>
+            ) : null}
+          </div>
+
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary mr-2">
+              Finalizar orden
+            </button>
+          </div>
         </form>
       </div>
     </>
