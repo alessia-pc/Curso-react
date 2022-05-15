@@ -125,11 +125,11 @@ const Formulario = () => {
       <>
         <div>
           <h1>Gracias por tu compra!</h1>
-          <div>Tu número de orden es {ordenId} </div>
+          <div className='numOrden'>Tu número de orden es {ordenId} </div>
 
-          <button>
+          <button className='btn-volver-pagina-principal'>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              Pagina Principal
+              Página Principal
             </Link>{" "}
           </button>
         </div>
@@ -139,7 +139,7 @@ const Formulario = () => {
     return (
       <>
         <div>
-          <h1>Estamos procesando tu orden.</h1>
+          <h1>Estamos procesando tu orden...</h1>
         </div>
       </>
     );

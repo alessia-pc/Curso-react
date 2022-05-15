@@ -17,17 +17,21 @@ function ItemCount({ stock = 0, initial = 1, onAdd }) {
     }
   }
   return (
-    <div>
-      <button className="btn-decrementar" onClick={decrementar}>
-        -
-      </button>
-      <span className="num-cuenta">{cuenta}</span>
-      <button className="btn-incrementar" onClick={incrementar}>
-        +
-      </button>
-      <button className="btn-anadir-al-carrito" onClick={() => onAdd(cuenta)}>
-        Agregar al carrito
-      </button>
+    <div className="botonesItemCount">
+
+    
+        <button className="btn-decrementar" onClick={decrementar}>
+          -
+        </button>
+        <span className="num-cuenta">{cuenta}</span>
+        <button className="btn-incrementar" onClick={incrementar}>
+          +
+        </button>
+        <button className="btn-anadir-al-carrito" onClick={() => onAdd(cuenta)}>
+          Agregar al carrito
+        </button>
+      
+
     </div>
   );
 }

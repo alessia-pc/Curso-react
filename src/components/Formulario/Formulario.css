@@ -1,5 +1,6 @@
 
 
+
 .formContainer {
   display: flex;
   justify-content: center;
@@ -55,4 +56,11 @@
   
   background-color: rgb(20, 9, 68);
   border: none;
+}
+
+.btn-volver-pagina-principal {
+  margin-top: 50px;
+}
+.numOrden {
+  margin-top: 30px;
 }

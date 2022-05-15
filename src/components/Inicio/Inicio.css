@@ -11,5 +11,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-    letter-spacing: 7px;
+    letter-spacing: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

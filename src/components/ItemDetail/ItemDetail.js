@@ -73,7 +73,7 @@ const ItemDetail = ({ nombre, img, precio, id, descripcion, stock }) => {
         </div>
       </div>
 
-      <div className="descripcionProducto">
+      <div className="descripcionProducto container">
         <p>{descripcion}</p>
       </div>
     </div>
