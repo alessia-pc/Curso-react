@@ -90,7 +90,7 @@ La colección order también presenta distintas colecciones:
 | ------ | ------ | ------ |
 | total | number | Total de la orden |
 
-## Funcionalidad de los componentes 📑 - Análisis 🧾
+## Funcionalidad de los componentes - Análisis 📑
 
 
 
