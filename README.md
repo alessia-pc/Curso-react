@@ -58,17 +58,14 @@ npm start
 
 - Colección: _orders_. Las ordenes tienen las siguietes propiedades:
 
-| compradorUser | ------ | ------ |
-| ------ | ------ | ------ |
+| compradorUser 
 | Campo | Tipo | Valor |
-| ------ | ------ | ------ |
 | nombre | string | Nombre del usuario
 | telefono | string | Número de telefono del usuario |
 | direccion | string | Dirección del usuario |
 | email | string | Email del usuario |
-| ------ | ------ | ------ |
-| date | ------ | ------ |
-| ------ | ------ | ------ |
+
+| date | 
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | date | timestamp | Hora de la orden |
@@ -81,10 +78,11 @@ npm start
 | nombre | string | Nombre del item |
 | precio | number | precio del item |
 | quantity | number | cantidad del item |
------- | ------ | ------ |
-| total | ------ | ------ |
+
+| total | 
 | ------ | ------ | ------ |
 | Campo | Tipo | Valor |
+| ------ | ------ | ------ |
 | total | number | Total de la orden |
 
 
