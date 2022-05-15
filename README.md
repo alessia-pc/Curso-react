@@ -25,17 +25,17 @@ npm start
 
 ## Tecnologías utilizadas
 
-🖥️ HTML
-🖥️ CSS
-🖥️ JavaScript
-🖥️ React JS
+- 🖥️ HTML
+- 🖥️ CSS
+- 🖥️ JavaScript
+- 🖥️ React JS
 
 ## Dependencias
 
-⚒️ Formik ➡️ Formulario 
-⚒️ Yup ➡️ Validación de formulario
-⚒️ React-router-dom ➡️ Routing de la pagina
-⚒️ React-Firebase ➡️ Base de datos
+- ⚒️ Formik ➡️ Formulario 
+- ⚒️ Yup ➡️ Validación de formulario
+- ⚒️ React-router-dom ➡️ Routing de la pagina
+- ⚒️ React-Firebase ➡️ Base de datos
 
 ## Firebase / Firestore 📁
 
@@ -58,7 +58,10 @@ npm start
 
 - Colección: _orders_. Las ordenes tienen las siguietes propiedades:
 
-| compradorUser |
+La colección order también presenta distintas colecciones:
+
+-Coleccion: _compradorUser_:
+
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | nombre | string | Nombre del usuario
@@ -66,12 +69,14 @@ npm start
 | direccion | string | Dirección del usuario |
 | email | string | Email del usuario |
 
-| date |  
+-Coleccion: _date_:
+
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | date | timestamp | Hora de la orden |
 
-| items |  
+-Coleccion: _items_:
+
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | id | string | Id del item |
@@ -79,7 +84,8 @@ npm start
 | precio | number | precio del item |
 | quantity | number | cantidad del item |
 
-| total | 
+-Coleccion: _total_:
+ 
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | total | number | Total de la orden |
