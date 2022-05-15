@@ -65,13 +65,12 @@ npm start
 | direccion | string | Dirección del usuario |
 | email | string | Email del usuario |
 
-| date | 
+| date |  |  |
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | date | timestamp | Hora de la orden |
-| ------ | ------ | ------ |
-| items | ------ | ------ |
-| ------ | ------ | ------ |
+
+| items |  |  |
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | id | string | Id del item |
@@ -79,8 +78,7 @@ npm start
 | precio | number | precio del item |
 | quantity | number | cantidad del item |
 
-| total | 
-| ------ | ------ | ------ |
+| total | ------ | ------ |
 | Campo | Tipo | Valor |
 | ------ | ------ | ------ |
 | total | number | Total de la orden |
