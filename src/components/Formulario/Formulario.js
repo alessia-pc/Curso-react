@@ -14,6 +14,7 @@ import { firestoreDb } from "../../services/firebase/index";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { muestraEnMiles } from "../../services/muestraEnMiles";
 
 const objetoComprador = {
   nombre: "",
@@ -27,6 +28,7 @@ const Formulario = () => {
   const [comprador, setComprador] = useState(objetoComprador);
   const [ordenEstado, setOrdenEstado] = useState(null);
   const [ordenId, setOrdenId] = useState(null);
+  const [ordenGenerada, setOrdenGenerada] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -79,6 +81,7 @@ const Formulario = () => {
     const collectionRef = collection(firestoreDb, "orders");
     setOrdenId((await addDoc(collectionRef, objetoOrder)).id);
     ordenConfirmada(ordenId);
+    setOrdenGenerada({ ...objetoOrder, ordenId });
   };
 
   const prodAgotado = () => {
@@ -120,14 +123,69 @@ const Formulario = () => {
     );
   }
 
-  if (ordenEstado === "confirmado") {
+  if (ordenEstado === "confirmado" && ordenGenerada) {
     return (
       <>
         <div>
           <h1>Gracias por tu compra!</h1>
-          <div className='numOrden'>Tu número de orden es: {ordenId} </div>
+          <div className="numOrden">
+            <div className="divOrden">Tu número de orden es: <p className="idOrden"><strong>{ordenId}</strong></p></div>
+            
+              <div>
 
-          <button className='btn-volver-pagina-principal'>
+                
+                <div>
+                  <table
+                    id="tablaOrden"
+                    className="table table-bordered align-middle maxAncho container"
+                  >
+                    <thead>
+                      <tr>
+                        <th className="text-center">Producto</th>
+                        <th className="text-center">Cantidad</th>
+                        <th className="text-center">Precio unitario</th>
+                        <th className="text-center">Precio x cantidad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ordenGenerada.items.map((item) => (
+                        <tr key={item.id} className="">
+                          <td className="text-capitalize d-flex justify-content-between">
+                            <div>
+                              <div className="h5"> {item.nombre} </div>
+                            </div>
+                          </td>
+                          <td className="py-auto text-center">
+                            {item.quantity}{" "}
+                          </td>
+                          <td className="py-auto text-center">
+                            ${muestraEnMiles(item.precio)}{" "}
+                          </td>
+                          <td className="py-auto text-center">
+                            ${muestraEnMiles(item.precio * item.quantity)}{" "}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th className="text-end" colSpan="1"></th>
+                        <th className="text-center"></th>
+                        <th className="text-end" colSpan="1">
+                          Precio total:
+                        </th>
+                        <th className="text-center">
+                          ${muestraEnMiles(ordenGenerada.total)}
+                        </th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            
+          </div>
+          {console.log("ordenGenerada:", ordenGenerada.items)}
+          <button className="btn-volver-pagina-principal">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               Página Principal
             </Link>{" "}
