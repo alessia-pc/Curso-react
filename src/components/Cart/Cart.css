@@ -36,12 +36,10 @@
   text-decoration: none;
 }
 
-
 .btn-comprar {
   text-decoration: none;
   color: white;
 }
 .btn-comprar:hover {
-  color: rgb(20, 87, 244) ;
+  color: rgb(20, 87, 244);
 }
-

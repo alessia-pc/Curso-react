@@ -27,7 +27,10 @@ const Cart = () => {
       {cart.map((producto) => (
         <ItemCart key={producto.id} {...producto} />
       ))}
-      <span> El total es: $ {muestraEnMiles(totalCost())} </span>
+      <span>
+        {" "}
+        <strong>Total: $ {muestraEnMiles(totalCost())} </strong>{" "}
+      </span>
       <div className="botonesCart">
         <button className="btn-clearCart" onClick={() => limpiarCart()}>
           Vaciar carrito

@@ -186,8 +186,8 @@ const Formulario = () => {
               </div>
             </div>
           </div>
-          <button className="btn-volver-pagina-principal">
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <button>
+            <Link className="btn-volver-pagina-principal" to="/">
               Página Principal
             </Link>{" "}
           </button>
