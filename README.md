@@ -1,7 +1,3 @@
-<!-- # Proyecto React - Alessia Puga Cammuso
-
-Soy Alessia Puga Cammuso y este es mi proyecto para el curso de React de CoderHouse. Mi proyecto se llama Tierra ruidosa y es una página en la cual encuentras productos que te llevan a vivir la musica de una manera increible! En el proyecto utilicé la libreria de routing y algunos hooks!
- -->
 
 # SonorouS 🎧
 
@@ -104,11 +100,25 @@ A su vez, en el navbar encontramos el componente NavBar 🔧. En este encontrare
 
 - Contacto ➡️ _Es un li con un NavLink que nos lleva a la ruta '/contacto'_. En esta ruta podrémos ver el componente Contacto 🔧, este nos muestra un email de contacto.
 
-- Carrito ➡️ _Es un li con un NavLink que nos lleva a la ruta '/carrito'_. Este icono de un carrito es el componente CartWidget 🔧, al cual podemos acceder en todo momento y nos irá mostrando la cantidad de productos que se encuentran en nuestro carrito. Haciendo click en este podrémos ver el resumen de nuestro carrito de compras, el resumen de nuestra compra la veremos en el componente Cart 🔧, este contiene dos botones, uno con el nombre de "Vaciar carrito" y otro con el nombre de "Finalizar compra", a su vez contiene el componente ItemCart 🔧, en el cual podrémos ver los datos de los productos que vamos agregando al carrito y un botón de una basurita para eliminar el item del carrito. 
+- Carrito ➡️ _Es un li con un NavLink que nos lleva a la ruta '/carrito'_. Este icono de un carrito es el componente CartWidget 🔧, al cual podemos acceder en todo momento y nos irá mostrando la cantidad de productos que se encuentran en nuestro carrito. Haciendo click en este podrémos ver el resumen de nuestro carrito de compras, el resumen de nuestra compra la veremos en el componente Cart 🔧, este contiene dos botones, uno con el nombre de "Vaciar carrito" y otro con el nombre de "Finalizar compra", a su vez contiene el componente ItemCart 🔧, en el cual podrémos ver los datos de los productos que vamos agregando al carrito y un botón de una basurita para eliminar el item del carrito. Para que nuestro carrito funcione perfectamente necesitamos el componente CartContext, en el cual se encuentran distintas funciones: 
 
-Si queremos seguir con la compra debemos clickear el botón que nombramos, "Finalizar compra", esto nos llevará al componente Formulario 🔧, llevandonos a su vez a la ruta '/formulario'. En este componente debemos completar 5 campos: _Nombre y apellido_, _Telefono_, _Email_, _Confirmación de email_ y _Dirección_. Todos los campos necesitan estar completos para poder seguir con la compra, en el caso de los emails deben estar iguales. Cuando todos los campos están completos, debemos clickear el botón de "Finalizar orden" el cual nos generará un id, generado en la colección "_orders_" en firebase. 
+🛒 anadirItem ➡️ Esta función nos permite añadir productos al carrito, a su vez nos permite identificar si el producto ya está en el carrito modificando únicamente la cantidad del producto y evitando así, que se genere otro item de ItemCart.
 
+🛒 isInCart ➡️ Esta función verifica si el producto se encuentra o no en el carrito.
 
+🛒 getQuantity ➡️ Esta función hace que al agregar productos al carrito podamos ver la cantidad de los mismos en el componente CartWidget.
+
+🛒 limpiarCart ➡️ Esta función le da funcionalidad al botón de "Vaciar carrito", eliminando todos los productos que se encuentren en el carrito.
+
+🛒 removeItem ➡️ Esta función le da funcionalidad al botón de la basurita en el componente ItemCart, eliminando el producto correspondiente a ese id y seteando el valor nuevo del CartWidget.
+
+🛒 getQuantityProducto ➡️ Esta función guarda la cantidad seleccionada del producto en el contador en ItemDetail.
+
+🛒 totalCost ➡️ Esta función nos permirte calcular el valor total de la compra que hicimos
+
+## Así verás la página
+
+### Alessia M. Puga Cammuso 👩🏻‍💻
 
 
 

@@ -4,8 +4,8 @@
   font-size: 20px;
 }
 
-.NavBar img {
-  margin-top: 15px;
+.logo {
+  letter-spacing: 2px;
 }
 
 
@@ -60,6 +60,6 @@
 
 
 .ActiveOption {
-  background-color: rgb(23, 23, 118);
+  background-color: rgb(18, 18, 99);
   
 }

@@ -24,6 +24,7 @@ const App = () => {
                 path="*"
                 element={<h1 className="error-404">NOT FOUND 404</h1>}
               />
+              <Route path="/sonorous" element={<Inicio />} />
               <Route path="/" element={<Inicio />} />
               <Route path="/inicio" element={<Inicio />} />
               <Route path="/productos" element={<ItemListContainer />} />

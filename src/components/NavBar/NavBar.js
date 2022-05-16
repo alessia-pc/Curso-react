@@ -22,13 +22,15 @@ const NavBar = () => {
   return (
     <nav className="NavBar">
       <ul className="componentes-NavBar">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
-        >
-          <img src={icono} height="37px" className="NavBar-icono" alt="logo" />
-        </NavLink>
-        <li id="elements-NavBar">
+        <li className="elements-NavBar logo">
+          <NavLink
+            to="/sonorous"
+            className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
+          >
+            <strong>SonorouS</strong>
+          </NavLink>
+        </li>
+        <li className="elements-NavBar">
           <NavLink
             to="/inicio"
             className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
@@ -36,7 +38,7 @@ const NavBar = () => {
             Inicio
           </NavLink>
         </li>
-        <li id="elements-NavBar">
+        <li className="elements-NavBar">
           <NavLink
             to="/productos"
             className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
@@ -58,7 +60,7 @@ const NavBar = () => {
           </ul>
         </li>
 
-        <li id="elements-NavBar">
+        <li className="elements-NavBar">
           <NavLink
             to="/contacto"
             className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
