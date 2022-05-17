@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,29 +9,29 @@ const Footer = () => {
         Whatsapp!
       </h4>
       <picture className="container-iconos">
-        <a href="https://www.instagram.com/">
+        <Link to="/">
           <img
             width="50px"
             src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
             alt="icono-instagram"
           ></img>
-        </a>
+        </Link>
 
-        <a href="https://www.whatsapp.com/">
+        <Link to="/">
           <img
             width="50px"
             src="https://cdn-icons-png.flaticon.com/512/1384/1384055.png"
             alt="icono-whatsapp"
           ></img>
-        </a>
+        </Link>
 
-        <a href="https://www.facebook.com/">
+        <Link to="/">
           <img
             width="50px"
             src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png"
             alt="icono-facebook"
           ></img>
-        </a>
+        </Link>
       </picture>
       <p> © 2022 Alessia Puga Cammuso.</p>
     </footer>
