@@ -8,7 +8,7 @@ const Inicio = () => {
       <picture>
         <img
           className="banner"
-          src="./banner-sonorous.jpg"
+          src="./banner--sonorous.jpg"
           alt="banner"
         ></img>
       </picture>
