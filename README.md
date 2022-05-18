@@ -27,10 +27,10 @@ npm start
 
 ## Dependencias
 
-- ⚒️ Formik ➡️ Formulario
-- ⚒️ Yup ➡️ Validación de formulario
-- ⚒️ React-router-dom ➡️ Routing de la pagina
-- ⚒️ React-Firebase ➡️ Base de datos
+- ⚒️ [Formik](https://formik.org/) ➡️ Formulario y su validación
+- ⚒️ [Yup](https://github.com/jquense/yup) ➡️ Validación de esquema de objetos de formulario
+- ⚒️ [React-router-dom](https://reactrouter.com/) ➡️ Routing de la página
+- ⚒️ [React-Firebase](https://firebaseopensource.com/projects/rakannimer/react-firebase/) ➡️ API de interacción con firebase (base de datos)
 
 ## Firebase / Firestore 📁
 
