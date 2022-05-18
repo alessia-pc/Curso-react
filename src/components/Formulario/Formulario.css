@@ -71,3 +71,25 @@
 .idOrden {
   font-size: 25px;
 }
+
+.datosComprador {
+  color: #1d4fb3;
+  margin: 40px 0;
+}
+.resumenCompra {
+  color: #1d4fb3;
+  margin: 40px 0;
+}
+
+
+.table {
+  width: 60%;
+}
+
+.table tbody tr th, td {
+  font-size: 15px;
+}
+
+#tablaOrden tbody, thead, tfooter, tr th,  td   {
+  font-size:15px;
+}

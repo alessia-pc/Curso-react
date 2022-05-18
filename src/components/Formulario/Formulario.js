@@ -128,16 +128,44 @@ const Formulario = () => {
       <>
         <div>
           <h1>Gracias por tu compra!</h1>
-          <div className="numOrden">
-            <div className="divOrden">
-              Tu número de orden es:{" "}
-              <p className="idOrden">
-                <strong>{ordenId}</strong>
-              </p>
-            </div>
-
+          <div className="orden">
             <div>
               <div>
+                <h3 className="datosComprador">Datos del comprador:</h3>
+  
+                <table className="table table-bordered align-middle mt-4 mb-3 maxAncho container">
+                  <tbody>
+                    <tr>
+                      <th>Id de orden</th>
+                      <td className="text-muted fw-bold">{ordenId}</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha/Hora de Generada</th>
+                      <td>{muestraEnMiles(ordenGenerada.date)}</td>
+                    </tr>
+                    <tr>
+                      <th>Nombre completo</th>
+                      <td>{ordenGenerada.compradorUser.nombre}</td>
+                    </tr>
+                    <tr>
+                      <th>Teléfono</th>
+                      <td>{ordenGenerada.compradorUser.telefono}</td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{ordenGenerada.compradorUser.email}</td>
+                    </tr>
+                    <tr>
+                      <th>Dirección</th>
+                      <td>{ordenGenerada.compradorUser.direccion}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 className="resumenCompra">Resumen de tu compra:</h3>
+
                 <table
                   id="tablaOrden"
                   className="table table-bordered align-middle maxAncho container"
