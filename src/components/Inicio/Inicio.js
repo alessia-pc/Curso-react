@@ -17,9 +17,9 @@ const Inicio = () => {
         <strong>SonorouS</strong>{" "}
       </p>
 
-      <ul>
+      <div className="container">
         <ItemListContainer />
-      </ul>
+      </div>
       <Footer />
     </div>
   );
