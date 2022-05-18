@@ -1,6 +1,6 @@
 import "./Formulario.css";
 import CartContext from "../../context/CartContext";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import {
   getDocs,
   writeBatch,
@@ -55,9 +55,6 @@ const Formulario = () => {
       ordenConStock();
     },
   });
-  useEffect(() => {
-    console.log("formik:", formik);
-  }, [formik]);
 
   const ordenConfirmada = () => {
     setComprador(objetoComprador);
@@ -81,6 +78,7 @@ const Formulario = () => {
       }),
       compradorUser: { nombre, telefono, email, direccion },
       total: totalCost(),
+      estado: 'generada',
       date: new Date(),
     };
     const collectionRef = collection(firestoreDb, "orders");
