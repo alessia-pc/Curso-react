@@ -1,6 +1,6 @@
 import "./Formulario.css";
 import CartContext from "../../context/CartContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   getDocs,
   writeBatch,
@@ -29,6 +29,8 @@ const Formulario = () => {
   const [ordenEstado, setOrdenEstado] = useState(null);
   const [ordenId, setOrdenId] = useState(null);
   const [ordenGenerada, setOrdenGenerada] = useState("");
+  
+  
 
   const formik = useFormik({
     initialValues: {
@@ -53,6 +55,9 @@ const Formulario = () => {
       ordenConStock();
     },
   });
+  useEffect(() => {
+    console.log("formik:", formik);
+  }, [formik]);
 
   const ordenConfirmada = () => {
     setComprador(objetoComprador);
@@ -314,7 +319,7 @@ const Formulario = () => {
           </div>
 
           <div className="form-group">
-            <button type="submit" className="btn btn-primary mr-2">
+            <button type="submit" className="btn btn-primary mr-2" disabled = {!(formik.isValid && formik.dirty)}>
               Finalizar orden
             </button>
           </div>
