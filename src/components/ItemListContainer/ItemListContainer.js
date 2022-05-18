@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import { useAsync } from "../../hooks/useAsync";
 import { getProducts } from "../../services/firebase/firestore";
@@ -28,7 +28,14 @@ const ItemListContainer = (props) => {
         ) : products ? (
           <ItemList products={products} />
         ) : (
-          <h1>El producto no existe</h1>
+          <>
+            <h1>El producto no existe en la base de datos</h1>
+            <button>
+              <Link className="texto-noHayProductos" to={"/productos"}>
+                Volver a la lista de productos
+              </Link>
+            </button>
+          </>
         )}
       </div>
     </div>
